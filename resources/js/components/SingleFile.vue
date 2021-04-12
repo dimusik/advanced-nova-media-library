@@ -4,7 +4,7 @@
       <a class="download mr-2" :href="image.__media_urls__.__original__" target="_blank">
         <icon type="search" view-box="0 0 20 20" width="16" height="16" />
       </a>
-      <a v-if="downloadUrl" class="download mr-2" :href="downloadUrl">
+      <a v-if="!hideDownloadLink && downloadUrl" class="download mr-2" :href="downloadUrl">
         <icon type="download" view-box="0 0 20 22" width="16" height="16" />
       </a>
       <span class="label">
@@ -24,7 +24,7 @@
   import GalleryItem from './GalleryItem';
 
   export default {
-    props: ['image', 'removable', 'isCustomPropertiesEditable'],
+    props: ['image', 'removable', 'isCustomPropertiesEditable', 'hideDownloadLink'],
     components: {
       GalleryItem,
     },

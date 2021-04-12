@@ -30,8 +30,13 @@ class Images extends Media
         return $this->withMeta(compact('croppable'));
     }
 
-    public function croppingConfigs(array $configs): self
+	public function croppingConfigs(array $configs): self
+	{
+		return $this->withMeta(['croppingConfigs' => $configs]);
+	}
+
+	public function hideDownloadLink(): self
     {
-        return $this->withMeta(['croppingConfigs' => $configs]);
+        return $this->withMeta(['hideDownloadLink' => true]);
     }
 }

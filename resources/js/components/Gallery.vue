@@ -7,6 +7,7 @@
 
       <component :is="singleComponent" v-for="(image, index) in images" class="mb-3 p-3 mr-3"
                     :key="index" :image="image" :field="field" :editable="editable" :removable="editable" @remove="remove(index)"
+                    :hide-download-link="field.hideDownloadLink"
                     :is-custom-properties-editable="customProperties && customPropertiesFields.length > 0"
                     @edit-custom-properties="customPropertiesImageIndex = index"
                     @crop-start="cropImage = $event"

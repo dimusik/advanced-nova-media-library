@@ -1,7 +1,7 @@
 <template>
   <gallery-item class="gallery-item-image">
     <div class="gallery-item-info p-3">
-      <a v-if="downloadUrl" class="icon download" :href="downloadUrl" title="Download">
+      <a v-if="!hideDownloadLink && downloadUrl" class="icon download" :href="downloadUrl" title="Download">
         <icon type="download" view-box="0 0 20 22" width="16" height="16"/>
       </a>
       <a v-if="removable" class="icon delete" href="#" @click.prevent="$emit('remove')" title="Remove">
@@ -30,7 +30,7 @@
       ScissorsIcon,
       GalleryItem,
     },
-    props: ['image', 'field', 'removable', 'editable', 'isCustomPropertiesEditable'],
+    props: ['image', 'field', 'removable', 'editable', 'isCustomPropertiesEditable', 'hideDownloadLink'],
     data: () => ({
       acceptedMimeTypes: ['image/jpg', 'image/jpeg', 'image/png'],
       src: "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
